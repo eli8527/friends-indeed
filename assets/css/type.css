@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Union';
+    src: url('union/Union-Regular.woff2') format('woff2'),
+        url('union/Union-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Union';
+    src: url('union/Union-BoldItalic.woff2') format('woff2'),
+        url('union/Union-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Union';
+    src: url('union/Union-Bold.woff2') format('woff2'),
+        url('union/Union-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Union';
+    src: url('union/Union-Italic.woff2') format('woff2'),
+        url('union/Union-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Pica';
+    src: url('pica/Pica10PitchBT-Roman.woff2') format('woff2'),
+        url('pica/Pica10PitchBT-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
