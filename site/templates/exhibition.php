@@ -16,7 +16,7 @@
     <div class="layout-flex">
       <?php if ($page->works()->length() > 0): ?>
         <div class="flex__main">
-          <? snippet('works_grid', ['works' => $page->works()->sortBy('sort', 'asc')->toPages()]); ?>
+          <?php snippet('works_grid', ['works' => $page->works()->sortBy('sort', 'asc')->toPages()]); ?>
         </div>
       <?php endif; ?>
 
