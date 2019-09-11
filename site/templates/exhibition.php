@@ -24,7 +24,7 @@
         <p>
           <?=$page->title() ?><br />
           <span class="secondary">
-            <? snippet('exhibition_dates', ['exhibition' => $page]); ?>
+            <?php snippet('exhibition_dates', ['exhibition' => $page]); ?>
           </span>
         </p>
         <div class="text">
