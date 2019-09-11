@@ -51,8 +51,8 @@
                   $artists->add($site->find($artistStr));
                 }
                 $artists = $artists->sortBy(function ($artist) {
-                  $pageExp = explode(" ", $page->title());
-                  return end($pageExp);
+                  $artistExp = explode(" ", $artist->title());
+                  return end($artistExp);
                 });
               ?>
               <?php foreach($artists as $artist): ?>

@@ -15,9 +15,9 @@
   <div class="layout-wrapper">
     <ul>
       <?php
-        $artists = $page->children()->listed()->sortBy(function ($page) {
-          $pageExp = explode(" ", $page->title());
-          return end($pageExp);
+        $artists = $page->children()->listed()->sortBy(function ($artist) {
+          $artistExp = explode(" ", $artist->title());
+          return end($artistExp);
         });
       ?>
       <?php foreach ($artists as $artist): ?>
