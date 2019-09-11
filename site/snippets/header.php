@@ -19,7 +19,7 @@
 
   <!-- Stylesheets can be included using the `css()` helper. Kirby also provides the `js()` helper to include script file.
         More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers -->
-  <?= css(['assets/css/type.css', 'assets/css/index.css', 'assets/css/works_grid.css', '@auto']) ?>
+  <?= css(['assets/css/type.css', 'assets/css/index.css', 'assets/css/works_grid.css', 'assets/css/installation_images_grid.css', '@auto']) ?>
   <?= js(['assets/js/main.js', '@auto']) ?>
 
 </head>

@@ -1,0 +1,12 @@
+.exhibitions__date-range {
+
+}
+
+.exhibitions__date-range__option {
+  display: inline-block;
+  margin-left: calc(var(--margin) / 2);
+}
+
+.exhibitions__date-range__option:first-of-type {
+  margin-left: 0;
+}

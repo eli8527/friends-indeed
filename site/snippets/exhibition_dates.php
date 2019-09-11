@@ -1,1 +1,1 @@
-<?= $exhibition->start_date()->toDate('m/d/Y'); ?>–<?= $exhibition->end_date()->isNotEmpty() ? $exhibition->start_date()->toDate('m/d/Y') : '' ?>
+<?= $exhibition->start_date()->toDate('F d, Y'); ?><?= $exhibition->end_date()->isNotEmpty() ? '–' . $exhibition->start_date()->toDate('F d, Y') : '' ?>

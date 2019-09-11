@@ -7,7 +7,7 @@
   --font-size--header: 1.8rem;
 
   --margin: 3.6rem;
-  --line-height: 1.2;
+  --line-height: 1.27;
 
   --font-family--primary: "Union", Arial, sans-serif;
   --font-family--secondary: "Pica", monospace;
@@ -20,7 +20,7 @@
   :root {
     --font-size--regular: 1.5rem;
     --font-size--large: 2rem;
-    --font-size--small: 1rem;
+    --font-size--small: 1.2rem;
     --font-size--header: 1.5rem;
     --margin: 1.8rem;
   }

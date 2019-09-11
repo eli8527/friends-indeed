@@ -18,20 +18,12 @@ Artists: artists/laura-owens, artists/ryan-gander
 
 ----
 
-Links:
-
-- 
-  title: Link1
-  url: http://google.com
-- 
-  title: LInk2
-  url: http://youtube.com
+Links: 
 
 ----
 
 Works:
 
-- works/test-work-2
 - works/test-work
 
 ----
@@ -42,20 +34,4 @@ Installation-images:
 
 ----
 
-Description: Oversharing is an exhibition about sharing.
-
-----
-
-Address: 
-
-----
-
-Email: 
-
-----
-
-Phone: 
-
-----
-
-Social: 
+Iimages: - img_5260-copy.jpg

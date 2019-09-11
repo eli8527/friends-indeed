@@ -33,6 +33,7 @@ columns:
           end_date:
             label: End Date
             type: date
+            required: true
           artists:
             type: multiselect
             query: site.find('artists').children
@@ -59,16 +60,19 @@ columns:
   - width: 2/3
     # Kirby has many different field types, from simple text fields to the more complex structure field that contains subfields
     # All available field types: https://getkirby.com/docs/reference/panel/fields
-    fields:
+    sections:
       works:
-        label: Works
-        type: pages
-        query: site.find('works').children
-        options: query
-        layout: cards
-        image: page.images.sortBy('sort', asc).first
+        type: fields
+        fields:
+          works:
+            label: Works
+            type: pages
+            query: site.find('works').children
+            options: query
+            layout: cards
+            image: page.images.sortBy('sort', asc).first
       installation_images:
-        label: Installation Images
+        headline: Installation Images
         type: files
         layout: cards
         template: image
