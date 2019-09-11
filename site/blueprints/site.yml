@@ -12,13 +12,23 @@ columns:
   # It reuses the pages section defined in `/site/blueprints/sections/albums.yml`
   - width: 1/2
     sections:
-      albums: sections/albums
+      exhibitions:
+        extends: sections/exhibitions
+        limit: 5
+      news_events:
+        extends: sections/news_events
+        limit: 5
 
   # The second column has two sections, `notes` and `pages`
   - width: 1/2
     sections:
       # The `notes` section reuses the pages section defined in `/site/blueprints/sections/notes.yml`
-      notes: sections/notes
+      artists:
+        extends: sections/artists
+        limit: 5
+      works:
+        extends: sections/works
+        limit: 5
 
       # The `pages` pages section shows other main pages of the site
       # Using the `templates` option, we limit which types of pages are shown
@@ -27,7 +37,7 @@ columns:
       # Since the error page's blueprint is set to `read: false`, it wouldn't show up here even if you added the error blueprint to the templates list
       pages:
         type: pages
-        create: default
+        max: 2
         templates:
           - about
           - home

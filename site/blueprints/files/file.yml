@@ -1,0 +1,10 @@
+title: File
+
+columns:
+  main:
+    width: 1/2
+    fields:
+      title:
+        label: Title
+        type: text
+        required: true

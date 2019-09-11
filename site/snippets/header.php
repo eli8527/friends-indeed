@@ -15,11 +15,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <!-- The title tag we show the title of our site and the title of the current page -->
-  <title><?= $site->title() ?> | <?= $page->title() ?></title>
+  <title><?= $page->title() ?> | <?= $site->title() ?></title>
 
   <!-- Stylesheets can be included using the `css()` helper. Kirby also provides the `js()` helper to include script file.
         More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers -->
-  <?= css(['assets/css/type.css', 'assets/css/index.css', '@auto']) ?>
+  <?= css(['assets/css/type.css', 'assets/css/index.css', 'assets/css/works_grid.css', '@auto']) ?>
   <?= js(['assets/js/main.js', '@auto']) ?>
 
 </head>

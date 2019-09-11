@@ -14,7 +14,7 @@ columns:
     sections:
       drafts:
         extends: sections/notes
-        headline: Drafts
+        headline: Drafsts
         status: draft
 
       unlisted:

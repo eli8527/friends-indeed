@@ -1,0 +1,61 @@
+Title: Oversharing
+
+----
+
+Text: *Oversharing* is an exhibition about sharing and caring.
+
+----
+
+Start-date: 2019-09-13
+
+----
+
+End-date: 2019-10-25
+
+----
+
+Artists: artists/laura-owens, artists/ryan-gander
+
+----
+
+Links:
+
+- 
+  title: Link1
+  url: http://google.com
+- 
+  title: LInk2
+  url: http://youtube.com
+
+----
+
+Works:
+
+- works/test-work-2
+- works/test-work
+
+----
+
+Installation-images:
+
+- img_5260-copy.jpg
+
+----
+
+Description: Oversharing is an exhibition about sharing.
+
+----
+
+Address: 
+
+----
+
+Email: 
+
+----
+
+Phone: 
+
+----
+
+Social: 
