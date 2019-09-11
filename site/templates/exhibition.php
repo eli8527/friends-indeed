@@ -41,7 +41,7 @@
           </ul>
           <p></p>
         <?php endif;?>
-        <?php if($page->artists()->count() > 0): ?>
+        <?php if($page->artists()->length() > 0): ?>
             <ul>
               <li>Artists</li>
               <?php
