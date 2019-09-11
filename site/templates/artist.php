@@ -16,7 +16,7 @@
     <div class="layout-flex">
       <?php if ($page->works()->length() > 0): ?>
         <div class="flex__main">
-          <? snippet('works_grid', ['works' => $page->works()->sortBy('sort', asc)->toPages()]); ?>
+          <? snippet('works_grid', ['works' => $page->works()->sortBy('sort', 'asc')->toPages()]); ?>
         </div>
       <?php endif; ?>
 
@@ -30,7 +30,7 @@
             <?php foreach ($page->links()->toStructure() as $link): ?>
               <li><a href="<?=$link->url()?>"><?= $link->title() ?></a></li>
             <?php endforeach ?>
-            <?php foreach($page->files()->sortBy('sort', asc) as $file): ?>
+            <?php foreach($page->files()->sortBy('sort', 'asc') as $file): ?>
               <li><a href="<?=$file->url()?>"><?= $file->title() ?></a></li>
             <?php endforeach; ?>
           </ul>
