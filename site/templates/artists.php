@@ -16,7 +16,8 @@
     <ul>
       <?php
         $artists = $page->children()->listed()->sortBy(function ($page) {
-          return end(explode(" ", $page->title()));
+          $pageExp = explode(" ", $page->title());
+          return end($pageExp);
         });
       ?>
       <?php foreach ($artists as $artist): ?>
