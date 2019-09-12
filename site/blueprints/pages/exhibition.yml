@@ -5,7 +5,7 @@ title: Exhibition
 icon: template
 image: false
 
-num: 0
+num: '{{ page.start_date.toDate("Ymd") }}'
 
 # Limit the possible page statuses to `draft` and `listed`.
 # More about page statuses: https://getkirby.com/docs/reference/panel/blueprints/page#statuses
@@ -16,63 +16,88 @@ status:
 # Define the form layout with two columns, each column has a set of fields
 # Columns are optional but help structure the form layout
 # More about columns: https://getkirby.com/docs/guide/blueprints/layout#defining-columns
-columns:
-  - width: 1/3
-    sections:
-      content:
-        type: fields
-        fields:
-          text:
-            label: Text
-            type: textarea
-            size: medium
-          start_date:
-            label: Start Date
-            type: date
-            required: true
-          end_date:
-            label: End Date
-            type: date
-            required: true
-          artists:
-            type: multiselect
-            query: site.find('artists').children
-            options: query
-          links:
-            label: Links
-            type: structure
+tabs:
+  main:
+    label: Main
+    icon: text
+    columns:
+      - width: 1/3
+        sections:
+          content:
+            type: fields
             fields:
-              title:
-                label: Title
-                type: text
-                width: 1/2
-              url:
-                label: URL
-                type: url
-                width: 1/2
+              hero_image:
+                label: Hero Image
+                type: files
+                layout: cards
+                multiple: false
+                uploads: image
+              text:
+                label: Text
+                type: textarea
+                size: medium
+              start_date:
+                label: Start Date
+                type: date
+                required: true
+              end_date:
+                label: End Date
+                type: date
+                required: true
+              artists:
+                type: multiselect
+                query: site.find('artists').children
+                options: query
+              events:
+                type: multiselect
+                query: site.find('news_events').children
+                options: query
+              links:
+                label: Links
+                type: structure
+                fields:
+                  title:
+                    label: Title
+                    type: text
+                    width: 1/2
+                  url:
+                    label: URL
+                    type: url
+                    width: 1/2
+          files:
+            type: files
+            layout: list
+            template: file
+            text: "{{ file.title }}"
 
-      files:
-        type: files
-        layout: list
-        template: file
-        text: "{{ file.title }}"
-
-  - width: 2/3
-    # Kirby has many different field types, from simple text fields to the more complex structure field that contains subfields
-    # All available field types: https://getkirby.com/docs/reference/panel/fields
-    sections:
-      works:
-        type: fields
-        fields:
+      - width: 2/3
+        # Kirby has many different field types, from simple text fields to the more complex structure field that contains subfields
+        # All available field types: https://getkirby.com/docs/reference/panel/fields
+        sections:
           works:
-            label: Works
-            type: pages
-            query: site.find('works').children
-            options: query
-            layout: cards
-            image: page.images.sortBy('sort', asc).first
-      installation_images:
-        headline: Installation Images
+            type: fields
+            fields:
+              works:
+                label: Works
+                type: pages
+                query: site.find('works').children
+                options: query
+                layout: cards
+                image: page.images.sortBy('sort', asc).first
+          installation:
+            type: fields
+            fields:
+              installation_images:
+                label: Installation Images
+                type: files
+                layout: cards
+                uploads: image
+  images:
+    label: Images
+    icon: image
+    sections:
+      images:
+        headline: Images
         type: files
         layout: cards
         template: image

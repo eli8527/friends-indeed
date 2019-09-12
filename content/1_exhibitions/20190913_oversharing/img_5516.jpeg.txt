@@ -1,0 +1,5 @@
+Caption: Test caption 1
+
+----
+
+Template: image

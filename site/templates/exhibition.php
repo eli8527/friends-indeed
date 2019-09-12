@@ -21,7 +21,7 @@
 
           <br/><br/>
           <p>Installation Images</p>
-          <?php snippet('installation_images_grid', ['iimages' => $page->images()->sortBy('sort', 'asc')]); ?>
+          <?php snippet('installation_images_grid', ['iimages' => $page->installation_images()->sortBy('sort', 'asc')->toFiles()]); ?>
         </div>
       <?php endif; ?>
 
@@ -45,6 +45,23 @@
             <?php endforeach; ?>
           </ul>
           <p></p>
+        <?php endif;?>
+        <?php if($page->events()->length() > 0): ?>
+            <ul>
+              <li>Events</li>
+              <?php
+                $eventsStrs = $page->events()->split();
+                $events = new Pages();
+                foreach($eventsStrs as $eventsStr) {
+                  $events->add($site->find($eventsStr));
+                }
+                $events = $events->sortBy('start_datetime', 'asc');
+              ?>
+              <?php foreach($events as $event): ?>
+                <li><a href="<?= $event->url() ?>"><?= $event->title() ?><br /><span class="secondary"><?php snippet('news_event_datetime', ['news_event' => $event]); ?></span></a></li>
+              <?php endforeach; ?>
+            </ul>
+            <p></p>
         <?php endif;?>
         <?php if($page->artists()->length() > 0): ?>
             <ul>

@@ -84,6 +84,10 @@ main {
   max-width: var(--content-width);
 }
 
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
 .layout-flex {
   display: flex;
   flex-direction: row;
@@ -196,6 +200,19 @@ main {
   .footer {
     flex-direction: column;
   }
+}
+
+/* Lists */
+li.exhibition__brief, li.news_event__brief, li.message {
+  margin-bottom: 1em;
+}
+
+ul.exhibitions__list, ul.news_events__list {
+  padding-bottom: 1em;
+}
+
+ul.home__list li {
+  padding-top: 5em;
 }
 
 

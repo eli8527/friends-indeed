@@ -17,6 +17,10 @@ columns:
             label: Caption
             type: textarea
             size: medium
+            buttons:
+              - bold
+              - italic
+              - link
   # - width: 1/2
   #   sections:
   #     meta:

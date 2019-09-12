@@ -36,6 +36,9 @@ columns:
           display:
             label: Display Title
             type: textarea
+            buttons:
+              - bold
+              - italic
           year:
             label: year
             type: text
@@ -46,6 +49,9 @@ columns:
             label: Meta
             type: textarea
             size: medium
+            buttons:
+              - bold
+              - italic
       artists:
         type: fields
         fields:

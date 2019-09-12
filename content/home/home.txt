@@ -1,1 +1,28 @@
 Title: Home
+
+----
+
+Content:
+
+- 
+  type: exhibition
+  message: ""
+  news_event: [ ]
+  exhibition:
+    - exhibitions/oversharing
+- 
+  type: message
+  message: '**Our inaugural show opens MONDAY.**'
+  news_event: [ ]
+  exhibition: [ ]
+- 
+  type: news_event
+  message: ""
+  news_event:
+    - >
+      news_events/oversharing-opening-reception
+  exhibition: [ ]
+
+----
+
+Text: hi

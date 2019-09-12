@@ -1,0 +1,17 @@
+# Each page blueprint must have a title, the title may be different from the file name
+title: News/Events
+
+# Each page can have an icon that is shown in page listings when no preview image is available.
+icon: calendar
+
+# Define the form layout with two columns
+# More about columns: https://getkirby.com/docs/guide/blueprints/layout#defining-columns
+
+options:
+  delete: false
+  duplicate: false
+  changeStatus: false
+  changeSlug: false
+
+sections:
+  news_events: sections/news_events

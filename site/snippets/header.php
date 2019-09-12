@@ -17,6 +17,10 @@
   <!-- The title tag we show the title of our site and the title of the current page -->
   <title><?= $page->title() ?> | <?= $site->title() ?></title>
 
+  <?php if ($about = page('about')): ?>
+    <link rel="shortcut icon" type="image/png" href="<?= $about->favicon()->toFile()->url(); ?>"/>
+  <?php endif; ?>
+
   <!-- Stylesheets can be included using the `css()` helper. Kirby also provides the `js()` helper to include script file.
         More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers -->
   <?= css(['assets/css/type.css', 'assets/css/index.css', 'assets/css/works_grid.css', 'assets/css/installation_images_grid.css', '@auto']) ?>

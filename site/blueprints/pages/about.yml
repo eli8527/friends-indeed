@@ -28,29 +28,50 @@ columns:
         label: Text
         type: textarea
         size: huge
+        uploads: false
 
   - width: 1/2
     # Kirby has many different field types, from simple text fields to the more complex structure field that contains subfields
     # All available field types: https://getkirby.com/docs/reference/panel/fields
-    fields:
-      address:
-        label: Address
-        type: textarea
-      email:
-        label: Email
-        type: email
-      phone:
-        label: Phone
-        type: tel
-      social:
-        label: Social
-        type: structure
+
+    sections:
+      content:
+        type: fields
         fields:
-          platform:
-            label: Platform
-            type: text
-            width: 1/2
-          url:
-            label: URL
-            type: url
-            width: 1/2
+          address:
+            label: Address
+            type: textarea
+            buttons:
+              - bold
+              - italic
+          email:
+            label: Email
+            type: email
+          phone:
+            label: Phone
+            type: tel
+          social:
+            label: Social
+            type: structure
+            fields:
+              platform:
+                label: Platform
+                type: text
+                width: 1/2
+              url:
+                label: URL
+                type: url
+                width: 1/2
+          favicon:
+            type: files
+            limit: 1
+
+      files:
+        type: files
+        layout: list
+        template: file
+        text: "{{ file.title }}"
+      images:
+        type: files
+        layout: list
+        template: image

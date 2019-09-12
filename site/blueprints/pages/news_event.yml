@@ -1,0 +1,67 @@
+# Each page blueprint must have a title, the title may be different from the file name
+title: News/Event
+
+# Each page can have an icon that is shown in page listings when no preview image is available.
+icon: calendar
+
+# Page status can be limited, here to `draft` and `listed`.
+# More about page status: https://getkirby.com/docs/reference/panel/blueprints/page#statuses
+status:
+  draft: Draft
+  listed: Published
+
+num: '{{ page.start_date.toDate("YmdHi") }}'
+
+# Define the form layout with two columns
+# Columns are optional but help structure the form layout
+# The first column defines an files section, the second a set of fields
+# More about different types of sections: https://getkirby.com/docs/reference/panel/sections
+# More about columns: https://getkirby.com/docs/guide/blueprints/layout#defining-columns
+
+columns:
+  - width: 1/3
+    # The second column contains a set of fields
+    # List of all available field types: https://getkirby.com/docs/reference/panel/fields
+    sections:
+      content:
+        type: fields
+        fields:
+          start_datetime:
+            label: Start
+            type: date
+            time: true
+            required: true
+          end_datetime:
+            label: End
+            type: date
+            time: true
+          location:
+            type: textarea
+            size: tiny
+            uploads: false
+            buttons:
+              - bold
+              - italic
+              - link
+      images:
+        type: files
+        layout: list
+        template: image
+      files:
+        type: files
+        layout: list
+        template: file
+        text: "{{ file.title }}"
+
+  - width: 2/3
+    fields:
+      intro:
+        label: Intro
+        type: textarea
+        size: small
+        uploads: false
+      text:
+        label: Text
+        type: textarea
+        size: large
+        uploads: false

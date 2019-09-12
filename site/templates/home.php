@@ -13,34 +13,21 @@
 <?php snippet('header') ?>
 
 <main>
-
-  <!-- <?php
-  // we always use an if-statement to check if a page exists to prevent errors
-  // in case the page was deleted or renamed before we call a method like `children()` in this case
-  if ($photographyPage = page('photography')): ?>
-  <ul class="grid">
-    <?php foreach ($photographyPage->children()->listed() as $album): ?>
-    <li>
-      <a href="<?= $album->url() ?>">
-        <figure>
-          <?php
-          // the `cover()` method defined in the `album.php` page model can be used
-          // everywhere across the site for this type of page
-          if ($cover = $album->cover()): ?>
-          <?= $cover->resize(1024, 1024) ?>
-          <?php endif ?>
-          <figcaption>
-            <span>
-              <span class="example-name"><?= $album->title() ?></span>
-            </span>
-          </figcaption>
-        </figure>
-      </a>
-    </li>
-    <?php endforeach ?>
-  </ul>
-  <?php endif ?> -->
-
+  <div class="layout-wrapper">
+    <ul class="home__list">
+      <?php foreach($page->content()->content()->toStructure() as $contentBlock): ?>
+        <?php if ($contentBlock->type() == "message"): ?>
+          <li class="center text max-width" style="color: #f00; text-align: center;">
+            <?= $contentBlock->message()->kt(); ?>
+          </li>
+        <?php elseif($contentBlock->type() == "news_event"): ?>
+          <?php snippet('news_event_brief', ['news_event' => $contentBlock->news_event()->toPage()]); ?>
+        <?php elseif($contentBlock->type() == "exhibition"): ?>
+          <?php snippet('exhibition_brief', ['exhibition' => $contentBlock->exhibition()->toPage()]); ?>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </ul>
+  </div>
 </main>
 
 <?php snippet('footer') ?>

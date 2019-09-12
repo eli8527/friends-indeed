@@ -25,7 +25,7 @@ San Francisco, CA 94108
 San Francisco, CA 94116
 
 **Gallery Hours**
-Wed, Thurs, Fri: 11am - 4pm
+Wed, Thurs, Fri: 11am - 4pm(image: img_5260-copy.jpg)
 
 ----
 
@@ -50,6 +50,12 @@ Social:
   platform: Instagram
   url: >
     https://www.instagram.com/friendsindeed_art/
+
+----
+
+Favicon:
+
+- favicon.png
 
 ----
 

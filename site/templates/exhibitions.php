@@ -57,7 +57,7 @@
       <p>Current</p>
       <ul class="exhibitions__list">
         <?php foreach($currentExhibitions as $exhibition): ?>
-          <?php snippet('exhibition_item', ['exhibition' => $exhibition]); ?>
+          <?php snippet('exhibition_brief', ['exhibition' => $exhibition]); ?>
         <?php endforeach; ?>
       </ul>
     <?php endif; ?>
@@ -65,7 +65,7 @@
       <p>Upcoming</p>
       <ul class="exhibitions__list">
         <?php foreach($upcomingExhibitions as $exhibition): ?>
-          <?php snippet('exhibition_item', ['exhibition' => $exhibition]); ?>
+          <?php snippet('exhibition_brief', ['exhibition' => $exhibition]); ?>
         <?php endforeach; ?>
       </ul>
     <?php endif; ?>
@@ -73,7 +73,7 @@
       <p>Past</p>
       <ul class="exhibitions__list">
         <?php foreach($pastExhibitions as $exhibition): ?>
-          <?php snippet('exhibition_item', ['exhibition' => $exhibition]); ?>
+          <?php snippet('exhibition_brief', ['exhibition' => $exhibition]); ?>
         <?php endforeach; ?>
       </ul>
     <?php endif; ?>
