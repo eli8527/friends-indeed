@@ -13,14 +13,16 @@
 <?php snippet('header') ?>
 
 <main>
-  <div class="layout-wrapper center max-width">
-    <div><?= $page->title() ?><br/><span class="secondary"><?php snippet('news_event_datetime', ['news_event' => $page]); ?></span></p>
-    <div class="text">
-      <?= $page->intro()->kt() ?>
-      <p></p>
-    </div>
-    <div class="text">
-      <?= $page->text()->kt() ?>
+  <div class="layout-wrapper">
+    <div class="center max-width">
+      <div><?= $page->title() ?><br/><span class="secondary"><?php snippet('news_event_datetime', ['news_event' => $page]); ?></span></p>
+      <div class="text">
+        <?= $page->intro()->kt() ?>
+        <p></p>
+      </div>
+      <div class="text">
+        <?= $page->text()->kt() ?>
+      </div>
     </div>
   </div>
 </main>
