@@ -26,6 +26,15 @@
   <?= css(['assets/css/type.css', 'assets/css/index.css', 'assets/css/works_grid.css', 'assets/css/installation_images_grid.css', '@auto']) ?>
   <?= js(['assets/js/main.js', '@auto']) ?>
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147761494-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-147761494-1');
+  </script>
 </head>
 <body>
   <header id="header" class="header">
