@@ -14,14 +14,17 @@
 <main>
   <div class="layout-wrapper">
     <div class="layout-flex">
-      <?php if ($page->works()->length() > 0): ?>
+      <?php if ($page->works()->length() > 0 || $page->installation_images()->length() > 0): ?>
         <div class="flex__main">
-          <p>Works</p>
-          <?php snippet('works_grid', ['works' => $page->works()->sortBy('sort', 'asc')->toPages()]); ?>
-
-          <br/><br/>
-          <p>Installation Images</p>
-          <?php snippet('installation_images_grid', ['iimages' => $page->installation_images()->sortBy('sort', 'asc')->toFiles()]); ?>
+          <?php if ($page->works()->length() > 0): ?>
+            <p>Works</p>
+            <?php snippet('works_grid', ['works' => $page->works()->sortBy('sort', 'asc')->toPages()]); ?>
+            <br/><br/>
+          <?php endif; ?>
+          <?php if ($page->installation_images()->length() > 0): ?>
+            <p>Installation Images</p>
+            <?php snippet('installation_images_grid', ['iimages' => $page->installation_images()->sortBy('sort', 'asc')->toFiles()]); ?>
+          <?php endif; ?>
         </div>
       <?php endif; ?>
 

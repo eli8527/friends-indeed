@@ -204,7 +204,7 @@ main {
 
 /* Lists */
 li.exhibition__brief, li.news_event__brief, li.message {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 ul.exhibitions__list, ul.news_events__list {

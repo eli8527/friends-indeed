@@ -5,7 +5,7 @@
 type: pages
 headline: News/Events
 parent: kirby.page("news_events")
-info: "{{ page.start_datetime.toDate('m/d/Y h:m A') }}"
+info: "{{ page.start_datetime.toDate('m/d/Y h:i A') }}"
 template: news_event
 empty: No news/events yet
 sortBy: start_datetime desc
