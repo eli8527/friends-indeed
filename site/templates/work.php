@@ -19,7 +19,7 @@
           <?php foreach($work_images as $work_image): ?>
             <li>
               <a href="<?= $work_image->resize(2000)->url(); ?>">
-                <?= $work_image->resize(512); ?>
+                <?= $work_image->resize(768); ?>
               </a>
             </li>
           <?php endforeach; ?>
