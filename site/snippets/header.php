@@ -20,7 +20,7 @@
     <link rel="shortcut icon" type="image/png" href="<?= $about->favicon()->toFile()->url(); ?>"/>
   <?php endif; ?>
 
-  <?= css(['assets/css/type.css', 'assets/css/index.css', 'assets/css/works_grid.css', 'assets/css/installation_images_grid.css', '@auto']) ?>
+  <?= css(['assets/css/type.css', 'assets/css/index.css', 'assets/css/grids.css', '@auto']) ?>
   <?= js(['assets/js/main.js', '@auto']) ?>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->

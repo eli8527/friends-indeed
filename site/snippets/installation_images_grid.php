@@ -8,7 +8,7 @@
  */
 ?>
 
-<ul class="installation_images__grid">
+<ul class="two-up__images__grid">
   <?php foreach ($iimages as $iimage): ?>
     <li class="">
       <a href="<?= $iimage->resize(2000)->url() ?>">

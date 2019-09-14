@@ -18,7 +18,7 @@
         <div class="flex__main">
           <?php if ($page->works()->length() > 0): ?>
             <p>Works</p>
-            <?php snippet('works_grid', ['works' => $page->works()->sortBy('sort', 'asc')->toPages()]); ?>
+            <?php snippet('works_grid', ['works' => $page->works()->sortBy('sort', 'asc')->toPages(), 'showArtistName' => true]); ?>
             <br/><br/>
           <?php endif; ?>
           <?php if ($page->installation_images()->length() > 0): ?>

@@ -8,14 +8,34 @@
  */
 ?>
 
-<ul class="works__grid">
+<ul class="three-up__images__grid">
   <?php foreach ($works as $work): ?>
     <?php $firstImage = $work->images()->sortBy(function ($image) { return $image->sort(); })->first(); ?>
     <li class="works__item">
-      <a href="<?= $firstImage->resize(2000)->url() ?>">
+      <a href="<?= $work->url(); ?>">
         <div class="works__item__image">
           <?= $firstImage->resize(1024); ?>
         </div>
+        <?php if ($showArtistName): ?>
+          <div class="works__item__artist">
+            <?php
+              $artistsStrs = $work->artists()->split();
+              $artists = new Pages();
+              foreach($artistsStrs as $artistStr) {
+                $artists->add($site->find($artistStr));
+              }
+              $artists = $artists->sortBy(function ($artist) {
+                $artistExp = explode(" ", $artist->title());
+                return end($artistExp);
+              });
+              $artist_names = [];
+              foreach($artists as $artist) {
+                $artist_names []= $artist->title();
+              }
+              echo join(', ', $artist_names);
+            ?>
+          </div>
+        <?php endif; ?>
         <div class="works__item__title">
           <?= $work->display()->kirbytextinline(); ?><?php if ($work->year()->isNotEmpty()): ?>, <?= $work->year() ?><?php endif; ?>
         </div>
