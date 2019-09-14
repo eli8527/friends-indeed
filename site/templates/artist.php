@@ -30,7 +30,7 @@
           <ul>
             <?php foreach ($page->links()->toStructure() as $link): ?>
               <li><a href="<?=$link->url()?>"><?= $link->title() ?></a></li>
-            <?php endforeach ?>
+            <?php endforeach; ?>
             <?php foreach($page->files()->sortBy('sort', 'asc') as $file): ?>
               <li><a href="<?=$file->url()?>"><?= $file->title() ?></a></li>
             <?php endforeach; ?>
