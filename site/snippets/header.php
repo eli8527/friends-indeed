@@ -14,7 +14,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <title><?= $page->title() ?> | <?= $site->title() ?></title>
+  <?php
+    $title = $page->title();
+    if ($page->display()->exists() && $page->display()->isNotEmpty()) {
+      $title = strip_tags($page->display()->kirbytextinline());
+    }
+  ?>
+  <title><?= $title ?> | <?= $site->title() ?></title>
 
   <?php if ($about = page('about')): ?>
     <link rel="shortcut icon" type="image/png" href="<?= $about->favicon()->toFile()->url(); ?>"/>
