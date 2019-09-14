@@ -61,7 +61,7 @@
                 $events = $events->sortBy('start_datetime', 'asc');
               ?>
               <?php foreach($events as $event): ?>
-                <li><a href="<?= $event->url() ?>"><?= $event->title() ?><br /><span class="secondary"><?php snippet('news_event_datetime', ['news_event' => $event]); ?></span></a></li>
+                <li><a href="<?= $event->url() ?>"><div><?= $event->title() ?></div><div class="secondary"><?php snippet('news_event_datetime', ['news_event' => $event]); ?></div></a></li>
               <?php endforeach; ?>
             </ul>
             <p></p>
