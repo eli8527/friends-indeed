@@ -15,7 +15,7 @@
 <main>
   <div class="layout-wrapper">
     <div class="center max-width">
-      <div><?= $page->title() ?><br/><span class="secondary"><?php snippet('news_event_datetime', ['news_event' => $page]); ?></span></p>
+      <div><?= $page->title() ?></div><div class="secondary"><?php snippet('news_event_datetime', ['news_event' => $page]); ?></div><p></p>
       <div class="text">
         <?= $page->intro()->kt() ?>
         <p></p>

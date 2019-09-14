@@ -29,12 +29,12 @@
       <?php endif; ?>
 
       <div class="flex__sidebar">
-        <p>
-          <?=$page->title() ?><br />
-          <span class="secondary">
+
+          <div><?=$page->title() ?></div>
+          <div class="secondary">
             <?php snippet('exhibition_dates', ['exhibition' => $page]); ?>
-          </span>
-        </p>
+          </div>
+        <p></p>
         <div class="text">
           <?= $page->text()->kt() ?>
         </div>
