@@ -1,7 +1,7 @@
 <li class="exhibition__brief max-width">
   <a href="<?= $exhibition->url(); ?>">
     <div class="exhibition__brief__image">
-      <?= $exhibition->hero_image()->toFile()->resize(1024); ?>
+      <?= $exhibition->hero_image()->toFile()->resize(768); ?>
     </div>
     <div class="exhibition__brief__title">
       <?= $exhibition->title(); ?>

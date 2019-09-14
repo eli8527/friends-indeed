@@ -13,7 +13,7 @@
     <li class="">
       <a href="<?= $iimage->resize(2000)->url() ?>">
         <div>
-          <?= $iimage->resize(1024); ?>
+          <?= $iimage->resize(768); ?>
         </div>
         <div class="secondary">
           <?= $iimage->caption()->kirbytextinline(); ?>

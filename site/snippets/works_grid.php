@@ -14,7 +14,7 @@
     <li class="works__item">
       <a href="<?= $work->url(); ?>">
         <div class="works__item__image">
-          <?= $firstImage->resize(1024); ?>
+          <?= $firstImage->resize(512); ?>
         </div>
         <?php if ($showArtistName): ?>
           <div class="works__item__artist">
