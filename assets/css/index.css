@@ -196,6 +196,18 @@ main {
   color: var(--color--secondary);
 }
 
+#mc-embedded-subscribe-form input {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  border-bottom: 2px solid black;
+  -webkit-appearance: none;
+}
+
+#mc-embedded-subscribe-form input:focus {
+  outline: none;
+}
+
 @media all and (max-width: 736px) {
   .footer {
     flex-direction: column;
