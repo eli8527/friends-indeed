@@ -50,6 +50,10 @@
         <div class="works__item__meta secondary">
           <?= $page->meta()->kirbytextinline(); ?>
         </div>
+        <div class="text">
+          <p></p>
+          <?= $page->description()->kt(); ?>
+        </div>
     </div>
   </div>
 </main>

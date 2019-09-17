@@ -48,10 +48,20 @@ columns:
           meta:
             label: Meta
             type: textarea
-            size: medium
+            size: small
             buttons:
               - bold
               - italic
+          description:
+            label: Description
+            type: textarea
+            size: medium
+            uploads: false
+            buttons:
+              - bold
+              - italic
+              - link
+              - email
       artists:
         type: fields
         fields:
