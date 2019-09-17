@@ -200,8 +200,10 @@ main {
   font-family: inherit;
   font-size: inherit;
   border: none;
+  border-radius: 0;
   border-bottom: 2px solid black;
   -webkit-appearance: none;
+  width: 15em;
 }
 
 #mc-embedded-subscribe-form input:focus {
