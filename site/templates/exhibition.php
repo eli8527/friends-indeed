@@ -38,7 +38,7 @@
         <div class="text">
           <?= $page->text()->kt() ?>
         </div>
-        <?php if($page->links()->length() > 0 || $page->files()->length() > 0): ?>
+        <?php if($page->links()->length() > 0 || $page->files()->count() > 0): ?>
           <ul>
             <?php foreach ($page->links()->toStructure() as $link): ?>
               <li><a href="<?=$link->url()?>"><?= $link->title() ?></a></li>
