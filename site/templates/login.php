@@ -10,12 +10,10 @@
       <?php endif ?>
 
       <form method="post" action="<?= $page->url() ?>">
-
         <!-- <div class="form__item">
           <label class="form__item__label" for="email"><?= $page->username()->html() ?></label>
           <input class="form__item__content" type="email" id="email" name="email" value="<?= esc(get('email')) ?>">
         </div> -->
-
         <div class="form__item">
           <label class="form__item__label" for="password"><?= $page->password()->html() ?></label>
           <input class="form__item__content" type="password" id="password" name="password" value="<?= esc(get('password')) ?>">
