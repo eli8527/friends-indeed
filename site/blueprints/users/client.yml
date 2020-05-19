@@ -1,0 +1,5 @@
+title: Client
+description: Client user for viewing password protected parts
+permissions:
+  access:
+    panel: false

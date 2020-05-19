@@ -45,6 +45,9 @@ columns:
           work_id:
             label: ID
             type: text
+          shopify_id:
+            label: Shopify ID
+            type: text
           meta:
             label: Meta
             type: textarea
@@ -57,6 +60,16 @@ columns:
             type: textarea
             size: medium
             uploads: false
+            buttons:
+              - bold
+              - italic
+              - link
+              - email
+          secret_text:
+            label: Hidden Text
+            type: textarea
+            size: medium
+            help: For logged in clients only
             buttons:
               - bold
               - italic

@@ -30,6 +30,11 @@ columns:
             label: Text
             type: textarea
             size: medium
+          secret_text:
+            label: Hidden Text
+            type: textarea
+            size: medium
+            help: For logged in clients only
           links:
             label: Links
             type: structure

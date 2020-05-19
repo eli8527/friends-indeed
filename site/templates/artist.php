@@ -25,6 +25,9 @@
         <p><?=$page->title() ?></p>
         <div class="text">
           <?= $page->text()->kt() ?>
+          <?php if ($kirby->user()): ?>
+            <?= $page->secret_text()->kt() ?>
+          <?php endif; ?>
         </div>
         <?php if(($page->links()->length() > 0) || ($page->files()->count() > 0)): ?>
           <ul>

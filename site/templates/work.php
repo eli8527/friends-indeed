@@ -53,6 +53,9 @@
         <div class="text">
           <p></p>
           <?= $page->description()->kt(); ?>
+          <?php if ($kirby->user()): ?>
+            <?= $page->secret_text()->kt() ?>
+          <?php endif; ?>
         </div>
     </div>
   </div>

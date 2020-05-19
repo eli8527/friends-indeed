@@ -158,10 +158,14 @@ main {
   padding-top: calc(var(--margin) / 2);
 }
 
-.nav__item {
+.nav__item, .nav__item--right {
   display: inline-block;
   margin-left: 5rem;
   font-weight: bold;
+}
+
+.nav__item--right {
+  float: right;
 }
 
 .nav__item:first-of-type {
@@ -173,9 +177,12 @@ main {
 }
 
 @media all and (max-width: 736px) {
-  .nav__item {
+  .nav__item, .nav__item--right {
     margin-left: 0;
     display: block;
+  }
+  .nav__item--right {
+    float: none;
   }
 }
 

@@ -36,6 +36,11 @@ tabs:
                 label: Text
                 type: textarea
                 size: medium
+              secret_text:
+                label: Hidden Text
+                type: textarea
+                size: medium
+                help: For logged in clients only
               start_date:
                 label: Start Date
                 type: date

@@ -42,3 +42,4 @@ columns:
           - about
           - home
           - default
+          - login

@@ -1,0 +1,24 @@
+.alert {
+  color: var(--color--secondary);
+}
+
+.form__item {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__item__content {
+  width: 50%;
+  font-size: inherit;
+}
+
+input.form__item__content {
+  border: 1px solid black;
+  padding: .1em;
+}
+
+.form__submit__button {
+  font-size: inherit;
+  font-family: var(--font-family--primary);
+}

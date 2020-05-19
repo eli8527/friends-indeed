@@ -46,5 +46,12 @@
       <?php foreach ($site->children()->listed() as $item): ?>
         <li class="nav__item"><a class="nav__item__link" href="<?= $item->url() ?>"><?= $item->title() ?></a></li>
       <?php endforeach ?>
+      <li class="nav__item--right">
+        <?php if ($user = $kirby->user()): ?>
+          <a href="<?= url('logout') ?>">Logout</a>
+        <?php else: ?>
+          <a href="<?= url('login') ?>">Login</a>
+        <?php endif ?>
+      </li>
     </nav>
   </header>
