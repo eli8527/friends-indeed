@@ -1,5 +1,0 @@
-Title: Error
-
-----
-
-Text: Sorry, you're lost. Go (link: / text: home).
