@@ -8,19 +8,34 @@
  * Snippets like the header, footer and intro contain markup used in multiple templates. They also help to keep templates clean.
  * More about templates: https://getkirby.com/docs/guide/templates/basics
  */
+
+
+ $artists = $page->children()->listed();
+ $representedArtists = $artists->filterBy('represented_by', true)->sortBy(function ($artist) {
+   $artistExp = explode(" ", $artist->title());
+   return end($artistExp);
+ });
+
+ $otherArtists = $artists->filterBy('represented_by', false)->sortBy(function ($artist) {
+   $artistExp = explode(" ", $artist->title());
+   return end($artistExp);
+ });
 ?>
 <?php snippet('header') ?>
 
 <main>
   <div class="layout-wrapper">
-    <ul>
-      <?php
-        $artists = $page->children()->listed()->sortBy(function ($artist) {
-          $artistExp = explode(" ", $artist->title());
-          return end($artistExp);
-        });
-      ?>
-      <?php foreach ($artists as $artist): ?>
+    <p>Agents for</p>
+    <ul class="artists__list">
+      <?php foreach ($representedArtists as $artist): ?>
+        <li>
+          <a href="<?= $artist->url() ?>"><?= $artist->title() ?></a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+    <p>Friends with</p>
+    <ul class="artists__list">
+      <?php foreach ($otherArtists as $artist): ?>
         <li>
           <a href="<?= $artist->url() ?>"><?= $artist->title() ?></a>
         </li>

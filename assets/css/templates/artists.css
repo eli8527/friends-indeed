@@ -1,0 +1,3 @@
+.artists__list {
+  margin-bottom: calc(2 * var(--font-size--regular)*var(--line-height))
+}

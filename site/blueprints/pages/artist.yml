@@ -26,6 +26,12 @@ columns:
       content:
         type: fields
         fields:
+          represented_by:
+            label: Represented
+            type: toggle
+            text:
+              No
+              Yes
           text:
             label: Text
             type: textarea
