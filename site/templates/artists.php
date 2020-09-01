@@ -10,13 +10,7 @@
  */
 
 
- $artists = $page->children()->listed();
- $representedArtists = $artists->filterBy('represented_by', true)->sortBy(function ($artist) {
-   $artistExp = explode(" ", $artist->title());
-   return end($artistExp);
- });
-
- $otherArtists = $artists->filterBy('represented_by', false)->sortBy(function ($artist) {
+ $artists = $page->children()->listed()->sortBy(function ($artist) {
    $artistExp = explode(" ", $artist->title());
    return end($artistExp);
  });
@@ -25,17 +19,8 @@
 
 <main>
   <div class="layout-wrapper">
-    <p>Agents for</p>
     <ul class="artists__list">
-      <?php foreach ($representedArtists as $artist): ?>
-        <li>
-          <a href="<?= $artist->url() ?>"><?= $artist->title() ?></a>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-    <p>Friends with</p>
-    <ul class="artists__list">
-      <?php foreach ($otherArtists as $artist): ?>
+      <?php foreach ($artists as $artist): ?>
         <li>
           <a href="<?= $artist->url() ?>"><?= $artist->title() ?></a>
         </li>
