@@ -229,13 +229,30 @@ li.exhibition__brief, li.news_event__brief, li.message {
 }
 
 ul.exhibitions__list, ul.news_events__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column-gap: var(--margin);
   padding-bottom: 1em;
+}
+
+ul.news_events__list .news_event__brief {
+  margin: initial;
 }
 
 ul.home__list li {
   padding-top: 5em;
 }
 
+@media all and (max-width: 736px) {
+  ul.exhibitions__list, ul.news_events__list {
+    display: block;
+  }
+
+  ul.news_events__list .news_event__brief {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 /* KirbyText */
 .text {
