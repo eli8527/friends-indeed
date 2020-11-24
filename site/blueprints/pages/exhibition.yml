@@ -11,6 +11,7 @@ num: '{{ page.start_date.toDate("Ymd") }}'
 # More about page statuses: https://getkirby.com/docs/reference/panel/blueprints/page#statuses
 status:
   draft: Draft
+  unlisted: Unlisted
   listed: Published
 
 # Define the form layout with two columns, each column has a set of fields

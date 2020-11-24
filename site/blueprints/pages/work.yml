@@ -8,6 +8,7 @@ icon: image
 # More about page status: https://getkirby.com/docs/reference/panel/blueprints/page#statuses
 status:
   draft: Draft
+  unlisted: Unlisted
   listed: Published
 
 num: zero
