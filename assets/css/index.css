@@ -198,6 +198,7 @@ main {
 }
 
 .current-time {
+  display: none;
   font-family: var(--font-family--secondary);
   font-weight: normal;
   color: var(--color--secondary);
