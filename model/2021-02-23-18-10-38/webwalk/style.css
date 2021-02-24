@@ -1,0 +1,805 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  user-select: none;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  color: white;
+}
+
+#cover-image {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  /* Fallback if background image failed to load.*/
+  background-color: #333;
+  transition: opacity 1s linear;
+}
+
+#walk-canvas {
+  width: 0;
+  height: 0;
+  touch-action: none;
+}
+
+.message {
+  z-index: 300;
+  position: absolute;
+  width: 260px;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+}
+.message > a {
+  color: black;
+}
+.info-message {
+  border: 2px solid yellow;
+}
+.error-message {
+  border: 2px solid red;
+}
+
+.ui-panel {
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 13px;
+}
+.ui-hoverable:hover {
+  background: rgb(0, 0, 0);
+}
+
+.ui-close-hoverable:hover {
+  background: rgb(80, 0, 0);
+}
+
+/* Reponsive UI dimensions and positions - large display */
+.ui-top {
+  top: 10px;
+}
+.ui-bottom {
+  bottom: 10px;
+}
+.ui-left {
+  left: 10px;
+}
+.ui-right {
+  right: 10px;
+}
+.ui-center {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.ui-all-center {
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+}
+
+.info-item {
+  min-width: 60px;
+  height: 60px;
+}
+.menu-item {
+  min-width: 52px;
+  height: 52px;
+  padding: 13px 6px 13px 6px;
+  line-height: 26px;
+}
+.menu-item > img {
+  padding: 2px 0 1px 0;
+}
+.menu-button {
+  font-size: 26px;
+}
+#secondary-progress-done {
+  height: 8px;
+}
+#engine-logo {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 34px;
+}
+#view-list-items {
+  /* Make view-list not higher than half of the viewport:
+       50vh + view_margin - ui_margin - (folder_margin + folder_height) */
+  max-height: calc(50vh + 2px - 10px - (4px + 14px));
+}
+#view-list-items::-webkit-scrollbar,
+#view-list-items::-webkit-scrollbar-thumb {
+  width: 6px;
+}
+.ext-popup-content {
+  /* 100vw - ui_margin - (ui_margin + close_button) */
+  max-width: calc(100vw - 10px - (10px + 30px));
+  /* 100vh - 2 * ui_margin */
+  max-height: calc(100vh - 2 * 10px);
+  padding: 12px;
+  font-size: 14px;
+}
+#ext-html-label-content img,
+#ext-html-label-content video,
+#ext-html-label-content iframe {
+  /* By default prevent img, video and iframe (often embedding videos) from
+     overflowing the screen: 100vh - 2 * ui_margin - 2 * popup_padding -
+     4px (- 4px as an error margin for browser's layout computations). */
+  max-height: calc(100vh - 2 * 10px - 2 * 12px - 4px);
+}
+
+/* Reponsive UI dimensions and positions - small display */
+@media (max-width: 639px), (max-height: 639px) {
+  .ui-panel {
+    font-size: 12px;
+  }
+  .ui-top {
+    top: 5px;
+  }
+  .ui-bottom {
+    bottom: 5px;
+  }
+  .ui-left {
+   left: 5px;
+  }
+  .ui-right {
+    right: 5px;
+  }
+  .info-item {
+    min-width: 46px;
+    height: 46px;
+  }
+  .menu-item {
+    min-width: 42px;
+    height: 42px;
+    padding: 11px 6px 11px 6px;
+    line-height: 20px;
+  }
+  .menu-item > img {
+    padding: 2px 0 0 0;
+  }
+  .menu-button {
+    font-size: 22px;
+  }
+  #secondary-progress-done {
+    height: 4px;
+  }
+  #engine-logo {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    line-height: 30px;
+  }
+  #view-list-items {
+    max-height: calc(50vh + 2px - 5px - (4px + 14px));
+  }
+  @media (min-width: 560px) and (max-height: 439px) {
+    #view-list-items {
+      /* If the small display is low but wide make the view-list taller:
+           80vh + view_margin - ui_margin - (folder_margin + folder_height) -
+             (ui_margin + menu_bar_height + ui_margin) - webkit_ui_height
+         We use 80vh instead of 100vh because on mobile WebKit 100vh includes
+         the browser UI.
+       */
+      max-height: calc(80vh + 2px - 5px - (4px + 14px) - (5px + 42px + 5px));
+    }
+  }
+  #view-list-items::-webkit-scrollbar,
+  #view-list-items::-webkit-scrollbar-thumb {
+    width: 4px;
+  }
+  .ext-popup-content {
+    max-width: calc(100vw - 5px - (5px + 30px));
+    max-height: calc(80vh - 5px - 5px);
+    padding: 8px;
+    font-size: 12px;
+  }
+  #ext-html-label-content img,
+  #ext-html-label-content video,
+  #ext-html-label-content iframe {
+    max-height: calc(80vh - 2 * 5px - 2 * 8px - 4px);
+  }
+}
+
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  /* For IE9: */
+  -ms-transform: translateX(-50%) translateY(-50%);
+}
+
+#info-bar {
+  z-index: 100;
+  position: absolute;
+  overflow: hidden;
+  user-select: text;
+}
+#info-bar-slide {
+  position: relative;
+  left: 0;
+  transition: left 1s ease;
+}
+#author-logo {
+  display: inline-block;
+  margin-right: 2px;
+  background: none;
+  text-align: center;
+}
+#author-logo > img {
+  height: 100%;
+}
+#info-text {
+  display: inline-block;
+  padding: 5px 10px 3px 10px;
+  vertical-align: top;
+}
+#info-text > div {
+  display: table;
+  height: 50%;
+}
+#info-title, #info-author {
+  display: table-cell;
+  height: 100%;
+  line-height: 1;
+  vertical-align: middle;
+  /* For <a> */
+  color: white;
+  text-decoration: none;
+}
+#info-title {
+  font-size: 1.4em;
+}
+
+#menu-bar {
+  z-index: 102;
+  position: absolute;
+  overflow: hidden;
+}
+#menu-bar-slide {
+  position: relative;
+  right: 0;
+  transition: right 1s ease;
+}
+.menu-item {
+  display: inline-block;
+  margin-left: 2px;
+  vertical-align: top;
+  text-align: center;
+  cursor: pointer;
+}
+.menu-item > img {
+  height: 100%;
+  vertical-align: top;
+}
+#menu-bar-content {
+  display: inline-block;
+  padding-left: 2px;
+}
+#menu-bar-folder {
+  min-width: 0px;
+  width: 16px;
+  padding-left: 6px;
+  padding-right: 5px;
+}
+#menu-bar-folder > img {
+  width: 100%;
+  transition: transform 1s ease;
+}
+#menu-buttons {
+  display: inline-block;
+}
+.menu-button {
+  font-weight: 700;
+}
+#engine-logo {
+  color: white;
+  text-decoration: none;
+}
+#engine-logo-text {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: top;
+}
+#view-list {
+  z-index: 101;
+  position: absolute;
+  overflow: hidden;
+}
+#view-list-slide {
+  position: relative;
+  top: 0;
+  transition: top 1s ease;
+}
+#view-list-items {
+  /* Negative margin to compensate for the first view having margin-top: 2px */
+  margin-top: -2px;
+  margin-bottom: 4px;
+  overflow-x: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: white rgba(0, 0, 0, 0.6);
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+#view-list-items::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 10px;
+}
+#view-list-items::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 5px;
+}
+.view {
+  padding: 3px 18px 3px 9px;
+  margin-top: 2px;
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: pointer;
+}
+#view-list-folder {
+  height: 14px;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+#view-list-folder > img {
+  /* Using height: 100% does not work on Safari, so set height in pixels. */
+  height: 5px;
+  vertical-align: top;
+}
+
+#play-button {
+  z-index: 200;
+  max-width: 30vw;
+  max-height: 35vh;
+  cursor: pointer;
+}
+
+#help-and-primary-progress {
+  z-index: 200;
+  text-align: center;
+}
+
+.help {
+  /* Such vertical margins here and in #primary-progress introduce
+     5vh margin between the help and the progress indicator when they
+     are shown together, while maintaining the vertical centering of these
+     elements when they are shown stand-alone. */
+  margin: 2.5vh auto;
+  padding: 16px;
+  font-size: 13px;
+}
+.close-help-button {
+  float: right;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  /* Negative margin to compensate for the hoverable padding */
+  margin: -6px 0 -6px 0;
+  cursor: pointer;
+}
+.help-columns {
+  display: table;
+  width: 100%;
+  text-align: center;
+}
+.help-column3, .help-column3-sep, .help-column2, .help-column2-sep {
+  display: table-cell;
+  vertical-align: middle;
+}
+.help-column3 {
+  width: 26%;
+}
+.help-column3-sep {
+  width: 11%;
+}
+.help-column2 {
+  width: 45%;
+}
+.help-column2-sep {
+  width: 10%;
+}
+
+#desktop-help {
+  width: 500px;
+}
+#desktop-help-switch {
+  padding-left: 25%;
+  width: 75%;
+  font-size: 14px;
+  text-align: center;
+}
+#desktop-help-switch > div {
+  display: inline-block;
+  width: 50%;
+  border: 2px solid #4676cc;
+  cursor: pointer;
+}
+#desktop-help-switch > div:nth-child(1) {
+  border-right-width: 1px;
+}
+#desktop-help-switch > div:nth-child(2) {
+  border-left-width: 1px;
+}
+#desktop-help-switch > div:hover {
+  background-color: #23b5e9;
+}
+#desktop-help-switch > div.selected,
+#desktop-help-switch > div.selected:hover {
+  background-color: #3c66b0;
+}
+
+#desktop-basic-help h1 {
+  margin-top: 24px;
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 700;
+}
+#desktop-basic-help img {
+  height: 60px;
+}
+
+#advanced-desktop-help {
+  max-height: calc(100vh - 200px);
+  margin-top: 8px;
+  overflow-y: auto;
+  font-size: 12px;
+}
+#advanced-desktop-help h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+.help-how, .help-what {
+  display: inline-block;
+  width: 50%;
+  padding: 4px 0;
+  vertical-align: middle;
+}
+.help-how {
+  padding-right: 5%;
+  text-align: right;
+}
+.help-what {
+  padding-left: 5%;
+}
+.help-key, .help-key-placeholder {
+  display: inline-block;
+  min-width: 22px;
+  margin: 1px;
+}
+.help-key {
+  line-height: 20px;
+  padding: 0 4px;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: center;
+}
+
+#mobile-help {
+  width: 300px;
+}
+#mobile-help h1 {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  font-size: 16px;
+  font-weight: 700;
+}
+#mobile-help img {
+  height: 50px;
+}
+
+#primary-progress {
+  /* z-index set to 200 for compatibility with customized indexes based on
+     webwalk < 180, because previously #primary-progress was a top-level
+     element. */
+  z-index: 200;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  width: 25vw;
+  max-height: 20vh;
+  transition: opacity 0.5s linear;
+}
+#primary-progress > circle {
+  fill: none;
+}
+#primary-progress > circle:nth-child(1) {
+  stroke: rgba(0, 0, 0, 0.6);
+}
+#primary-progress-done {
+  stroke: #3c66b0;
+}
+
+#secondary-progress {
+  z-index: 200;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 0.5s linear;
+}
+#secondary-progress-done {
+  width: 0px;
+  background-color: #3c66b0;
+}
+
+.tour-on {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+.active-view, .active-view:hover {
+  background-color: #3c66b0;
+}
+
+.next-active-view, .next-active-view:hover {
+  background-color: #284461;
+}
+
+.ext-popup {
+  z-index: 104;
+  position: absolute;
+  white-space: nowrap;
+}
+.ext-popup-content {
+  display: inline-block;
+  vertical-align: top;
+  overflow: auto;
+  /* A bit darker than .ui-panel because large pop-ups often overlap with some
+     UI elements */
+  background-color: rgba(0, 0, 0, 0.8);
+  white-space: normal;
+}
+.ext-popup-close-button-panel {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 6px;
+  background-color: rgba(0, 0, 0, 0.8);
+  line-height: 0;
+}
+.ext-popup-close-button {
+  width: 18px;
+  height: 18px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+#ext-html-label-content {
+  user-select: text;
+}
+
+#ext-html-label-content a {
+  color:#5cc2e6;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#ext-html-label-content img,
+#ext-html-label-content video {
+  max-width: 75vw;
+}
+#ext-html-label-content iframe {
+  /* By default show iframes in 16:9 aspect ratio, suitable for video embeds. */
+  width: 75vw;
+  height: calc(75vw / 16 * 9);
+  border: 0;
+}
+
+#ext-html-label-content video,
+#ext-html-label-content iframe {
+  /* By default prevent videos and iframes (often embedding videos) from
+     overflowing the screen. */
+  max-height: 75vh;
+}
+
+.ext-meeting-button {
+  display: inline-block;
+  min-width: 40px;
+  border: 2px solid #3c66b0;
+  background-color: #4676cc;
+  cursor: pointer;
+  color: white;
+}
+.ext-meeting-button:hover {
+  background-color: #3c66b0;
+}
+.ext-meeting-button:focus {
+  outline-color: #627fb3;
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+.ext-meeting-button-highlight {
+  border: 2px solid #a32929;
+  background-color: #cc3333;
+}
+.ext-meeting-button-highlight:hover {
+  background-color: #a32929;
+}
+.ext-meeting-button-highlight:focus {
+  outline-color: #d65c5c;
+}
+
+.ext-meeting-right {
+  float: right;
+}
+
+.ext-meeting-join-row + .ext-meeting-join-row {
+  margin-top: 8px;
+}
+
+.ext-meeting-join-label {
+  display: inline-block;
+  width: 80px;
+}
+
+#ext-meeting-join-name {
+  width: 180px;
+}
+
+.ext-meeting-join-center {
+  text-align: center;
+}
+
+.ext-meeting-join-footer {
+  max-width: 260px;
+  padding-top: 8px;
+  font-size: smaller;
+}
+
+.ext-meeting-join-footer > a {
+  color: white;
+}
+
+.ext-meeting-input-missing {
+  background-color: #ff4136;
+}
+
+.ext-meeting-list {
+  padding-left: 16px;
+  margin-top: 4px;
+}
+
+.ext-meeting-list-entry {
+  min-width: 52px;
+}
+.ext-meeting-list-name {
+  margin-right: 3px;
+}
+.ext-meeting-list-audio-indicator {
+  display: inline-block;
+  min-width: 1.3em;
+  margin-left: 2px;
+  color: #bbb;
+  font-size: 0.85em;
+  text-align: center;
+}
+.ext-meeting-note-entry > span {
+  float: right;
+}
+#ext-meeting-note-list {
+  max-height: 60vh;
+  overflow:hidden;
+  overflow-y:scroll;
+  scrollbar-width: auto;
+  scrollbar-color: white rgba(0, 0, 0, 0.6);
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+#ext-meeting-note-list::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 10px;
+}
+#ext-meeting-note-list::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 5px;
+}
+
+#ext-meeting-note-list > li {
+  padding-right: 20px;
+}
+
+.ext-meeting-note-entry {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.ext-meeting-note-list-unread {
+  color: #ff8c00;
+}
+
+.ext-meeting-note-list-selected {
+  color: #01c47f;
+}
+
+.ext-meeting-note-unread {
+  border-left: 2px solid #ff8c00;
+  margin-left: -2px;
+}
+
+#ext-meeting-note-text {
+  height: 5em;
+  width: 40em;
+  margin-bottom: 1em;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+#ext-meeting-self-video {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+
+#ext-meeting-self-video > video {
+  display: block;
+  max-width: 40vw;
+  max-height: 25vh;
+  transform: scaleX(-1);
+}
+
+.fa-microphone::before {
+ font-family: 'FontAwesomeSolid';
+ content: "\f130";
+}
+.fa-microphone-slash::before {
+ font-family: 'FontAwesomeSolid';
+ content: "\f131";
+}
+.fa-video::before {
+ font-family: 'FontAwesomeSolid';
+ content: "\f03d";
+}
+.fa-video-slash::before {
+ font-family: 'FontAwesomeSolid';
+ content: "\f4e2";
+}
+.fa-hand-pointer::before {
+ font-family: 'FontAwesomeRegular';
+ content: "\f25a";
+}
+
+.ui-blur {
+  pointer-events: none;
+  filter: blur(2px) opacity(0.4);
+  transition: 1s;
+}
+.ui-unblur {
+  filter: none;
+  transition: 1s;
+}
+
+.ui-foremost {
+  z-index: 400;
+}

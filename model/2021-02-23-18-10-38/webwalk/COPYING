@@ -1,0 +1,32 @@
+/**
+ * @preserve
+ *
+ *  Shapespark 3D visualization viewer
+ *
+ *  Copyright (C) 2014-present Shapespark
+ *
+ *  The viewer uses the following open source libraries:
+ *
+ *    Three.js: https://github.com/mrdoob/three.js,
+ *    Copyright 2010-2015 three.js authors, MIT License
+ *
+ *    PlayCanvas (GLSL shaders code): https://github.com/playcanvas/engine
+ *    Copyright (C) 2011-2015 PlayCanvas Ltd., MIT License
+ *
+ *    WebXR Polyfill: https://github.com/immersive-web/webxr-polyfill,
+ *    Copyright (C) 2017 Google Inc, Apache 2.0 License
+ *
+ *    Web Font Loader: https://github.com/typekit/webfontloader
+ *    Copyright (C) 2010-2017 Adobe Systems Incorporated, Google Incorporated, Apache 2.0 License
+ *
+ *    Basis Universal GPU Texture Codec: https://github.com/BinomialLLC/basis_universal
+ *    Copyright (C) 2019 Binomial LLC., Apache License
+ *
+ *  and the following open fonts:
+ *
+ *    Noto Sans: https://fonts.google.com/specimen/Noto+Sans?query=noto+sans
+ *    Copyright (C) Google Inc., Apache 2.0 License
+ *
+ *    Font Awesome: https://fontawesome.com/
+ *    Copyright (C) 2017 Fonticons Inc, SIL Open Font License
+ */
