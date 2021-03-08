@@ -27,12 +27,20 @@ columns:
               message: Message
               news_event: News/Event
               exhibition: Exhibition
+              email: Email Signup
           message:
             label: Message
             type: textarea
             size: medium
             when:
               type: message
+          email:
+            label: Email Signup
+            type: textarea
+            size: medium
+            hint: Adds a newsletter sign up with additional copy.
+            when:
+              type: email
           news_event:
             label: News/Event
             type: pages

@@ -204,6 +204,10 @@ main {
   color: var(--color--secondary);
 }
 
+#mc-embedded-subscribe-form .mc-field-group {
+  width: 100%;
+}
+
 #mc-embedded-subscribe-form input {
   font-family: inherit;
   font-size: inherit;
@@ -211,7 +215,8 @@ main {
   border-radius: 0;
   border-bottom: 2px solid black;
   -webkit-appearance: none;
-  width: 15em;
+  width: 100%;
+  padding-bottom: 0.2em;
 }
 
 #mc-embedded-subscribe-form input:focus {

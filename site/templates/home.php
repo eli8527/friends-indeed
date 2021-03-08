@@ -17,8 +17,13 @@
     <ul class="home__list">
       <?php foreach($page->content()->content()->toStructure() as $contentBlock): ?>
         <?php if ($contentBlock->type() == "message"): ?>
-          <li class="center text max-width" style="color: #f00; text-align: center;">
+          <li class="center text max-width" style="text-align: center;">
             <?= $contentBlock->message()->kt(); ?>
+          </li>
+        <?php elseif ($contentBlock->type() == "email"): ?>
+          <li class="center text max-width">
+            <?= $contentBlock->email()->kt(); ?>
+            <?php snippet('email-signup') ?>
           </li>
         <?php elseif($contentBlock->type() == "news_event"): ?>
           <?php snippet('news_event_brief', ['news_event' => $contentBlock->news_event()->toPage()]); ?>
