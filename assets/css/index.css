@@ -213,7 +213,8 @@ main {
   font-size: inherit;
   border: none;
   border-radius: 0;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid currentColor;
+  color: currentColor;
   -webkit-appearance: none;
   width: 100%;
   padding-bottom: 0.2em;
@@ -246,7 +247,7 @@ ul.news_events__list .news_event__brief {
 }
 
 ul.home__list li {
-  padding-top: 5em;
+  margin-top: 5em;
 }
 
 @media all and (max-width: 736px) {

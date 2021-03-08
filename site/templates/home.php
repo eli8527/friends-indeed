@@ -22,8 +22,10 @@
           </li>
         <?php elseif ($contentBlock->type() == "email"): ?>
           <li class="center text max-width">
-            <?= $contentBlock->email()->kt(); ?>
-            <?php snippet('email-signup') ?>
+            <div style="border: 2px solid currentColor; padding: 1em; margin-left: -1em; margin-right: -1em;">
+              <?= $contentBlock->email()->kt(); ?>
+              <?php snippet('email-signup') ?>
+            </div>
           </li>
         <?php elseif($contentBlock->type() == "news_event"): ?>
           <?php snippet('news_event_brief', ['news_event' => $contentBlock->news_event()->toPage()]); ?>
